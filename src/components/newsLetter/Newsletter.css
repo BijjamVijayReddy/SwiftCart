@@ -1,0 +1,28 @@
+.letter_input {
+    border: 2px solid rgb(208, 125, 125);
+    border-radius: 8px;
+    outline: none;
+    height: 35px;
+    color: brown;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.letter_input::placeholder {
+    color: rgb(208, 125, 125);;
+    position: relative;
+    left: 10px;
+}
+
+.send-btn {
+    position: relative;
+    left: 10px;
+    background-color: brown;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 2px 17px 0px 17px;
+    height: 35px;
+    font-weight: 200;
+    transition: height 0.3s ease-in-out;
+}

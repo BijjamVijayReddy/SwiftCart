@@ -24,14 +24,21 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Applink {
+  color: #fff;
+  height: 75px;
+  width: 50px;
+  border: 1px solid balck;
+  border-radius: 20px;
+  background-color: blue;
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

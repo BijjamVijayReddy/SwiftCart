@@ -1,0 +1,82 @@
+.AppFooter {
+    padding: 25px;
+    margin: 0 auto;
+    max-width: 99%;
+    background: linear-gradient(90deg, rgba(207, 114, 123, 0.9) 0%, rgba(212, 146, 151, 0.9) 93.28%);
+    position: relative;
+    top: 208px;
+}
+
+.AppFooter img {
+    height: 45px;
+}
+
+*/ .AppFooter .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.AppFooter .img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.AppFooter h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 1.0em;
+    font-weight: 600;
+}
+
+.AppFooter h6 {
+    margin-bottom: 8px;
+    /* font-size: 14px; */
+}
+
+.AppFooter input {
+    width: 94%;
+    padding: 5px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+}
+
+.send_btn {
+    margin-top: 10px;
+    background-color: brown;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 2px 17px 0px 17px;
+    height: 40px;
+    font-weight: 200;
+    transition: height 0.3s ease-in-out;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .AppFooter .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .AppFooter .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .AppFooter h4 {
+        font-size: 1.1em;
+    }
+
+    .AppFooter h6 {
+        font-size: 0.9em;
+    }
+
+    .AppFooter input {
+        font-size: 0.9em;
+    }
+}
