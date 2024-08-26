@@ -3,13 +3,10 @@ import Slider from "react-slick";
 import img1 from "../../assests/img11.jpeg";
 import img2 from "../../assests/Img13.jpg";
 import img3 from "../../assests/img14.jpg";
-import img4 from "../../assests/scrroll_img4.jpg";
-import img5 from "../../assests/img15.jpg";
 import img6 from "../../assests/img16.jpg";
 import img9 from "../../assests/img17.jpg";
 import img10 from "../../assests/img18.jpg";
 import img11 from "../../assests/img19.jpg";
-import img12 from "../../assests/Img13.jpg";
 import Img13 from "../../assests/img20.jpg";
 import Img20 from "../../assests/img21.jpg"
 import Img21 from "../../assests/img22.jpg"
@@ -26,11 +23,8 @@ const user_Img = [
     { userImg: img1, text: "Winter Sale" },
     { userImg: img2, text: "Winter Sale" },
     { userImg: img3, text: "Winter Sale" },
-    // { userImg: img4, text: "Winter Sale" },
-    // { userImg: img5, text: "Winter Sale" },
     { userImg: img6, text: "Winter Sale" },
     { userImg: img11, text: "Winter Sale" },
-    // { userImg: img12, text: "Winter Sale" },
     { userImg: img9, text: "Winter Sale" },
     { userImg: img10, text: "Winter Sale" },
     { userImg: Img13, text: "Winter Sale" },
