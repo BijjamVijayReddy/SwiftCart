@@ -14,22 +14,30 @@ import Img13 from "../../assests/img20.jpg";
 import Img20 from "../../assests/img21.jpg"
 import Img21 from "../../assests/img22.jpg"
 import Img22 from "../../assests/Img23.jpg"
+import Img23 from "../../assests/Img24.webp";
+import Img26 from "../../assests/Img25.webp";
+import Img27 from "../../assests/Img26.webp"
 
 const user_Img = [
+    { userImg: Img27, text: "Active Wear" },
+    { userImg: Img23, text: "Men Clothing" },
+    { userImg: Img26, text: "Men Clothing" },
+    { userImg: Img27, text: "Men Clothing" },
     { userImg: img1, text: "Winter Sale" },
     { userImg: img2, text: "Winter Sale" },
     { userImg: img3, text: "Winter Sale" },
-    { userImg: img4, text: "Winter Sale" },
-    { userImg: img5, text: "Winter Sale" },
+    // { userImg: img4, text: "Winter Sale" },
+    // { userImg: img5, text: "Winter Sale" },
     { userImg: img6, text: "Winter Sale" },
     { userImg: img11, text: "Winter Sale" },
-    { userImg: img12, text: "Winter Sale" },
+    // { userImg: img12, text: "Winter Sale" },
     { userImg: img9, text: "Winter Sale" },
     { userImg: img10, text: "Winter Sale" },
     { userImg: Img13, text: "Winter Sale" },
     { userImg: Img20, text: "SHOP Now" },
     { userImg: Img21, text: "SHOP Now" },
     { userImg: Img22, text: "SHOP Now" },
+    
 ];
 
 export default function SimpleSlider() {
