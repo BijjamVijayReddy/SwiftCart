@@ -28,7 +28,7 @@ const EmailSvg = (
 
 function Newsletter() {
     return (
-        <div className='text-center tracking-wide mb-4 mt-10 relative top-200px' style={{ top: '200px' }}>
+        <div className='text-center tracking-wide mb-4 mt-10 relative top-50px' style={{ top: '50px' }}>
             <span className='mb-10'>{EmailSvg}</span>
             <h1 style={{ fontSize: "22px" }}>Subscribe To Our Newsletter</h1>
             <h4 className='mt-1 mb-2' style={{ fontSize: "15px" }}>and receive a $200 coupon for your first order when you checkout!</h4>

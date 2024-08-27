@@ -1,13 +1,25 @@
 .App-Header {
     padding: 20px;
-    background-color: #ededed;
+    background-color: #ededed; /* Default background color */
     margin: 0px;
     display: flex;
     justify-content: space-between;
     box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
     max-width: 99%;
     margin: 0 auto;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+.sticky-header {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background color when sticky */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
+    z-index: 1000;
+}
+
 
 .app-logo {
     height: 45px;
@@ -89,8 +101,14 @@
     padding: 20px;
     font-size: 14px;
     z-index: 1000;
-    
+
 }
+
+.mobile-menu-link.text-[brown] {
+    color: brown !important;
+    font-weight: bold !important;
+}
+
 
 .mobile-menu.open {
     right: 0;

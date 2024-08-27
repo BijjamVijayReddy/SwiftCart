@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import "./AppHeader.css";
 import logo from "../../assests/logo.png";
+import { useSelector } from 'react-redux';
 
 const cartSvg = (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
@@ -15,14 +17,17 @@ const closeSvg = (
 );
 
 const AppHeader = () => {
+    const cartItems = useSelector((state) => state.cart.cartItems.length);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isSticky, setIsSticky] = useState(false);
+    const headerRef = useRef(null);
 
     const nav_links = [
-        { route: "Home", path: "./home" },
-        { route: "Categories", path: "./categories" },
-        { route: "About Us", path: "./about" },
-        { route: "Contact Us", path: "./contact" }
+        { route: "Home", path: "/" },
+        { route: "Categories", path: "/categories" },
+        { route: "About Us", path: "/about-us" },
+        { route: "Contact Us", path: "/contact" }
     ];
 
     useEffect(() => {
@@ -30,9 +35,23 @@ const AppHeader = () => {
             setIsMobile(window.innerWidth < 768);
         };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        const handleScroll = () => {
+            if (headerRef.current) {
+                if (window.scrollY > 200) {
+                    setIsSticky(true);
+                } else {
+                    setIsSticky(false);
+                }
+            }
+        };
 
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     const toggleMenu = () => {
@@ -40,7 +59,7 @@ const AppHeader = () => {
     };
 
     return (
-        <div className='App-Header'>
+        <div className={`App-Header ${isSticky ? 'sticky-header' : ''}`} ref={headerRef}>
             <div>
                 <img src={logo} alt='logo' className='app-logo' />
             </div>
@@ -59,14 +78,13 @@ const AppHeader = () => {
                         </div>
 
                         {nav_links.map((item) => (
-                            <a key={item.route} href={item.path} className='mobile-menu-link' onClick={toggleMenu}>
+                            <NavLink to={item.path} key={item.route} className={({ isActive }) => `mobile-menu-link ${isActive ? 'text-[brown] font-bold' : null}`} onClick={toggleMenu}>
                                 {item.route}
-                            </a>
+                            </NavLink>
                         ))}
 
-
                         <div className='cart_btn'>
-                            {cartSvg}<span className='icon'>0</span>
+                            {cartSvg}<span className='icon'>{cartItems}</span>
                             <button>Login</button>
                         </div>
 
@@ -78,9 +96,9 @@ const AppHeader = () => {
             ) : (
                 <div className='flex flex-wrap gap-6 cursor-pointer font-medium relative top-3 right-6'>
                     {nav_links.map((item) => (
-                        <h5 key={item.route}>{item.route}</h5>
+                        <NavLink to={item.path} className={({ isActive }) => isActive ? 'text-[brown] font-bold' : null} key={item.route} href={item.path} >{item.route}</NavLink>
                     ))}
-                    {cartSvg}<span className='desktop_icon'>0</span>
+                    {cartSvg}<span className='desktop_icon'>{cartItems}</span>
                     <button>Login</button>
                 </div>
             )}

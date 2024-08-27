@@ -18,7 +18,7 @@ import Img27 from "../../assests/Img26.webp"
 const user_Img = [
     { userImg: Img27, text: "Active Wear" },
     { userImg: Img23, text: "Men Clothing" },
-    { userImg: Img26, text: "Men Clothing" },
+    { userImg: Img26, text: "Women Clothing" },
     { userImg: Img27, text: "Men Clothing" },
     { userImg: img1, text: "Winter Sale" },
     { userImg: img2, text: "Winter Sale" },

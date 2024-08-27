@@ -1,18 +1,23 @@
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-import AppFooter from './components/AppFooter/AppFooter';
-import AppHeader from './components/AppHeader/AppHeader';
-import AppInfo from './components/AppInfo/AppInfo';
-import Slider from './components/Slider/Slider';
-import Newsletter from './components/newsLetter/Newsletter';
+import AppRoutes from './appRoutes/AppRoutes';
+import { fetchApi } from './store/productActions';
+
 
 function App() {
+  
+  const { products, loading, error } = useSelector((state) => state.products);
+  // const { cartItems } = useSelector((state) => state.cartItems);
+  // console.log("CartItems", JSON.stringify(products));
+  // console.log("isLoading", loading);
+  // console.log("err", error)
+
+  
+
   return (
     <div >
-      <AppHeader />
-      <Slider />
-      <AppInfo />
-      <Newsletter />
-      <AppFooter />
+      <AppRoutes />
     </div>
   );
 }
