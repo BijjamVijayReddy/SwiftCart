@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import "./AppHeader.css";
 import logo from "../../assests/logo.png";
 import { useSelector } from 'react-redux';
@@ -17,11 +17,13 @@ const closeSvg = (
 );
 
 const AppHeader = () => {
-    const cartItems = useSelector((state) => state.cart.cartItems.length);
+    const totalQuantity = useSelector((state) => state.cart.totalQuantity);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [menuOpen, setMenuOpen] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
     const headerRef = useRef(null);
+    const navigate = useNavigate();
+
 
     const nav_links = [
         { route: "Home", path: "/" },
@@ -58,12 +60,15 @@ const AppHeader = () => {
         setMenuOpen(!menuOpen);
     };
 
+    const naviagteHandler = () => {
+        navigate("/cart-page")
+    }
+
     return (
         <div className={`App-Header ${isSticky ? 'sticky-header' : ''}`} ref={headerRef}>
             <div>
                 <img src={logo} alt='logo' className='app-logo' />
             </div>
-
             {isMobile ? (
                 <div className="mobile-menu-container">
                     <div onClick={toggleMenu}>
@@ -84,7 +89,7 @@ const AppHeader = () => {
                         ))}
 
                         <div className='cart_btn'>
-                            {cartSvg}<span className='icon'>{cartItems}</span>
+                            {cartSvg}<span className='icon' onClick={naviagteHandler}>{totalQuantity}</span>
                             <button>Login</button>
                         </div>
 
@@ -98,7 +103,7 @@ const AppHeader = () => {
                     {nav_links.map((item) => (
                         <NavLink to={item.path} className={({ isActive }) => isActive ? 'text-[brown] font-bold' : null} key={item.route} href={item.path} >{item.route}</NavLink>
                     ))}
-                    {cartSvg}<span className='desktop_icon'>{cartItems}</span>
+                    {cartSvg}<span className='desktop_icon' onClick={naviagteHandler}>{totalQuantity}</span>
                     <button>Login</button>
                 </div>
             )}

@@ -1,0 +1,11 @@
+.checkout_btn {
+    margin-top: 10px;
+    background-color: brown;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 2px 17px 0px 17px;
+    height: 40px;
+    font-weight: 200;
+    transition: height 0.3s ease-in-out;
+}

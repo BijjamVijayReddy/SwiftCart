@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchApi } from '../../store/productActions';
+import SuccessToast, { showToast } from '../toast/SucessToast';
 
 
 function NewDeals() {
     const dispatch = useDispatch();
     const { products } = useSelector((state) => state.products);
+    const [isSuccess, setSuccess] = useState(false)
 
-
-    console.log("Dispatching fetchApi...");
     React.useEffect(() => {
         dispatch(fetchApi());
     }, [dispatch]);
 
     const addCart = (item) => {
+        setSuccess(true)
+        showToast("Item added! 🛒");
+        console.log("Item", JSON.stringify(item))
         dispatch({
             type: 'ADD_TO_CART',
             payload: item
@@ -22,6 +25,8 @@ function NewDeals() {
 
     return (
         <div>
+            {isSuccess ? <SuccessToast /> : null}
+
             <div className='text-center mt-4 mb-4 font-semibold text-xl'>
                 <h2>DAILY DEALS!</h2>
             </div>

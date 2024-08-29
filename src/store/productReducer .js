@@ -3,7 +3,7 @@ import { FETCH_PRODUCT_FAILURE, FETCH_PRODUCT_REQUEST, FETCH_PRODUCT_SUCCESS } f
 const initialState = {
     loading: false,
     products: [],
-    error: ""
+    error: "",
 };
 
 const productReducer = (state = initialState, action) => {
