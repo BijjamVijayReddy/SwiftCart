@@ -8,14 +8,16 @@ import Login from '../pages/login/Login';
 
 
 function AppRoutes() {
+
+
     return (
         <Routes>
-            <Route path="/" element={<DashBoard />} />
+            <Route path="/dashboard" element={<DashBoard />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/cart-Page" element={<Cart />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-            <Route path='*' element={<Navigate to="/" />} />
+            <Route path='*' element={<Navigate to="/login" />} />
         </Routes>
     )
 }

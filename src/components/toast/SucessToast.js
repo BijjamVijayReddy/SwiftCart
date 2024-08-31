@@ -10,7 +10,6 @@ export const showToast = (message) => {
     toast.success(message, {
         position: "bottom-right",
         hideProgressBar:true
-      
     });
 };
 

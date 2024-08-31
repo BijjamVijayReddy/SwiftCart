@@ -14,7 +14,7 @@ function DashBoard() {
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false)
-        }, 5000)
+        }, 2000)
     }, [])
 
     return (

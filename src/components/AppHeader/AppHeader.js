@@ -23,6 +23,9 @@ const AppHeader = () => {
     const [isSticky, setIsSticky] = useState(false);
     const headerRef = useRef(null);
     const navigate = useNavigate();
+    const token = sessionStorage.getItem("token");
+    const [islogged, setLogged] = useState(false)
+
 
 
     const nav_links = [
@@ -33,6 +36,9 @@ const AppHeader = () => {
     ];
 
     useEffect(() => {
+        if (!token) {
+            setLogged(true)
+        }
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
         };
@@ -62,6 +68,14 @@ const AppHeader = () => {
 
     const naviagteHandler = () => {
         navigate("/cart-page")
+    };
+    const loginHandler = () => {
+        navigate("/login")
+    };
+
+    const logoutHandler = () => {
+        sessionStorage.clear()
+        navigate("/login")
     }
 
     return (
@@ -90,7 +104,7 @@ const AppHeader = () => {
 
                         <div className='cart_btn'>
                             {cartSvg}<span className='icon' onClick={naviagteHandler}>{totalQuantity}</span>
-                            <button>Login</button>
+                            <button onClick={loginHandler}>Login</button>
                         </div>
 
                         <div>
@@ -104,7 +118,8 @@ const AppHeader = () => {
                         <NavLink to={item.path} className={({ isActive }) => isActive ? 'text-[brown] font-bold' : null} key={item.route} href={item.path} >{item.route}</NavLink>
                     ))}
                     {cartSvg}<span className='desktop_icon' onClick={naviagteHandler}>{totalQuantity}</span>
-                    <button>Login</button>
+
+                    {islogged ? <button onClick={loginHandler}>Login</button> : <button onClick={logoutHandler}>Logout</button>}
                 </div>
             )}
         </div>
