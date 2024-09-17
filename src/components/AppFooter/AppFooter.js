@@ -23,7 +23,7 @@ const AppFooter = () => {
 
                 <div>
                     <h4>Contact</h4>
-                    <h6 className='text-xs'>91-9491467216</h6>
+                    <h6 className='text-xs'>+91-9491467216</h6>
                     <h4>Email</h4>
                     <h6 className='text-xs'>bijjamvijayreddy@gmail.com</h6>
                 </div>
